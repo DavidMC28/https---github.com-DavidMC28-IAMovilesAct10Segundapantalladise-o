@@ -1,9 +1,9 @@
 # myapp
 
 lenguaje flutter , nivel principiante, crea un codigo que se asemeje a lo que ves en la imagen, es un apartado de perfil, sigue los colores
+<img width="797" height="505" alt="perW" src="https://github.com/user-attachments/assets/bccb9a55-fa88-4c76-b1c3-ffbb2ef0d52b" />
+<img width="304" height="503" alt="perA" src="https://github.com/user-attachments/assets/e2d9a396-5780-42ff-8a60-c7a6c5377da8" />
 
-![IMG_20260228_211458](https://github.com/user-attachments/assets/2b066048-63e1-4e41-966d-5f6e0967307f)
-<img width="334" height="512" alt="per" src="https://github.com/user-attachments/assets/c2ade141-bb18-46be-bb62-e3637e27843b" />
 
 A new Flutter project.
 
