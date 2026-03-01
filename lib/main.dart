@@ -1,122 +1,179 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MiPerfilApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MiPerfilApp extends StatelessWidget {
+  const MiPerfilApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Pantalla de Perfil - David Macias',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: const Color(0xFFC0D6E4),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const PantallaPerfil(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class PantallaPerfil extends StatelessWidget {
+  const PantallaPerfil({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    // Definición de colores según tu dibujo
+    const Color colorAzulClaro = Color(0xFFC0D6E4); 
+    const Color colorAmarillo = Color(0xFFFFEB3B); 
+    const Color colorBordeVerde = Color(0xFFB2DFDB); 
+    
+    final TextStyle estiloTextoItem = TextStyle(
+      fontSize: 18,
+      color: Colors.black.withAlpha(178),
+    );
+
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      backgroundColor: Colors.white,
+      body: SafeArea(
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          children: [
+            // --- HEADER (Azul Claro) ---
+            Container(
+              height: 140,
+              width: double.infinity,
+              color: colorAzulClaro,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Positioned(
+                    left: 20,
+                    top: 20,
+                    child: Text(
+                      'Perfil',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black.withAlpha(153),
+                      ),
+                    ),
+                  ),
+                  const Positioned(
+                    top: 20,
+                    child: Icon(
+                      Icons.person_outline,
+                      size: 80,
+                      color: Colors.black45,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // --- LÍNEA AMARILLA SUPERIOR ---
+            Container(
+              height: 10,
+              width: double.infinity,
+              color: colorAmarillo,
+            ),
+
+            // --- CUERPO PRINCIPAL ---
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Usuario con Cupones abajo
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(color: colorBordeVerde, width: 3),
+                              ),
+                              child: const Icon(Icons.person_outline, size: 35),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              '0\ncupones',
+                              textAlign: TextAlign.center,
+                              style: estiloTextoItem,
+                            ),
+                          ],
+                        ),
+                        const Icon(Icons.edit, color: colorAmarillo, size: 30),
+                      ],
+                    ),
+                    
+                    const SizedBox(height: 30),
+
+                    // Lista de opciones
+                    _construirItem(Icons.storefront_outlined, 'Pagos y compras', estiloTextoItem),
+                    _construirItem(Icons.settings_outlined, 'Ajustes', estiloTextoItem),
+                    _construirItem(
+                      Icons.navigation_outlined, 
+                      'Ubicacion', 
+                      estiloTextoItem, 
+                      esTriangulo: true
+                    ),
+                    _construirItem(Icons.dark_mode_outlined, 'tema', estiloTextoItem),
+                  ],
+                ),
+              ),
+            ),
+
+            // --- LÍNEA AMARILLA INFERIOR ---
+            Container(
+              height: 18,
+              width: double.infinity,
+              color: colorAmarillo,
+            ),
+
+            // --- FOOTER CON FONDO AZUL ---
+            Container(
+              width: double.infinity,
+              color: colorAzulClaro, // Mismo color que el header
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
+              child: Text(
+                'David Macias 6-I',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black.withAlpha(153),
+                  letterSpacing: 1.1,
+                ),
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  // Widget auxiliar para las filas de la lista
+  Widget _construirItem(IconData icono, String texto, TextStyle estilo, {bool esTriangulo = false}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      child: Row(
+        children: [
+          esTriangulo 
+            ? Transform.rotate(angle: 0.5, child: Icon(icono, size: 28)) 
+            : Icon(icono, size: 28),
+          const SizedBox(width: 20),
+          Flexible(
+            child: Text(texto, style: estilo),
+          ),
+        ],
+      ),
     );
   }
 }

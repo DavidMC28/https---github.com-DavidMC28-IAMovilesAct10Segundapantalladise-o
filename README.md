@@ -1,5 +1,8 @@
 # myapp
 
+lenguaje flutter , nivel principiante, crea un codigo que se asemeje a lo que ves en la imagen, es un apartado de perfil, sigue los colores
+
+
 A new Flutter project.
 
 ## Getting Started
